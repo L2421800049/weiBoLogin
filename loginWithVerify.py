@@ -1,8 +1,8 @@
 import threading
-
 import requests,json,re,base64,time,rsa,binascii
 from lxml import etree
 
+# 下面有一些方法属性没有用到，我就懒得删了，大佬们看看就好
 
 class Wblogin():
     def __init__(self):
@@ -285,7 +285,7 @@ class Wblogin():
         res.encoding = res.apparent_encoding
         print("-"*30)
         print(res.text)
-        if "5963948475" in res.text: # 这个是id
+        if "id" in res.text: # 这个是id 你自己登录的时候需要把这个改了，改成你自己的
             print("成功进入主页")
 
             # 下面就是操作了
@@ -443,8 +443,8 @@ class Wblogin():
 
 
     def main(self):
-        account = "15675491284"
-        passwd = "ljx520ljx"
+        account = ""
+        passwd = ""
         self.preLogin(account)
         self.login(passwd)
         self.getScan()
